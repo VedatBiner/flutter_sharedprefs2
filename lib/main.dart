@@ -15,6 +15,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Provider.of<ThemeColorData>(context, listen: false).loadThemeFromSharedPref();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // yayını okuyoruz

@@ -43,15 +43,5 @@ class ThemeColorData with ChangeNotifier{
 
     _isGreen = _sharedPrefObject.getBool("themeData")?? true;
 
-    /*
-    if(_sharedPrefObject.getBool("themeData")! == null){
-      _isGreen = true;
-    } else {
-      _isGreen = _sharedPrefObject.getBool("themeData")!;
-    }
-
-     */
-
-
   }
 }

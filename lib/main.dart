@@ -2,20 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import './theme_data.dart';
 
-void main() => runApp(
-      // provider ile yayını yapıyoruz.
-      ChangeNotifierProvider<ThemeColorData>(
-        create: (BuildContext context) => ThemeColorData(),
-        child: const MyApp(),
-      ),
-    );
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await ThemeColorData().createSharedPrefObject();
+  runApp(
+    // provider ile yayını yapıyoruz.
+    ChangeNotifierProvider<ThemeColorData>(
+      create: (BuildContext context) => ThemeColorData(),
+      child: const MyApp(),
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    Provider.of<ThemeColorData>(context, listen: false).loadThemeFromSharedPref();
+    Provider.of<ThemeColorData>(context, listen: false)
+        .loadThemeFromSharedPref();
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // yayını okuyoruz

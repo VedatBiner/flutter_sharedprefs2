@@ -11,7 +11,7 @@ ThemeData red = ThemeData(
 
 class ThemeColorData with ChangeNotifier{
 
-  late SharedPreferences _sharedPrefObject;
+  static late SharedPreferences _sharedPrefObject;
   bool _isGreen = true;
 
   //getter
@@ -39,9 +39,17 @@ class ThemeColorData with ChangeNotifier{
 
   // okuma metodu
   Future<void> loadThemeFromSharedPref() async {
-    await createSharedPrefObject();
+    // await createSharedPrefObject();
 
     _isGreen = _sharedPrefObject.getBool("themeData")?? true;
 
   }
 }
+
+
+
+
+
+
+
+
